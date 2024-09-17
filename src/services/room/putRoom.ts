@@ -1,12 +1,8 @@
 import Room from "../../interfaces/Room";
-import rooms from '../../db/room.json'
+import { Rooms } from "../../models/modelRoom";
 
-export default function putRoom(id:string,dateUpdate:Room){
-    const room = rooms.filter((room) => {
-        return room.id === id
-    })
-    return {
-        room,
-        ...dateUpdate
-    }
+export default async function putRoom(id:string,dateUpdate:Room){
+    await Rooms.updateOne({id}, dateUpdate)
+    const roomUpdated = await Rooms.findById(id)
+    return roomUpdated
 }

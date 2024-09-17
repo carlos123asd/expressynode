@@ -1,8 +1,5 @@
-import Message from "../../interfaces/Message";
-import messages from '../../db/comment.json'
-export default function deleteMessage(id:string){
-    const message = messages.filter((message) => {
-        return message.id === id
-    })
+import { Messages } from "../../models/modelMessage";
+export default async function deleteMessage(id:string){
+    const message = await Messages.findByIdAndDelete(id)
     return message
 }

@@ -15,44 +15,40 @@ const routerBooking = Router()
 //Conseguir todos los datos de Booking
 const getAllbookings = (req:Request, res:Response) => {
     const bookings = sgetBookings()
-    res.send({
-        bookings
-    })
+    if(bookings){
+        return res.status(200).json(bookings)
+    }else{
+        return res.status(404).json(bookings)
+    }
 }
 //Conseguir un Booking
 const getBooking = (req:Request, res:Response) => {
     const {id} = req.params
     const booking = sgetAbooking(id)
-    res.send({
-        booking
-    })
+    if(booking){
+        return res.status(200).json(booking)
+    }else{
+        return res.status(404).json(booking)
+    }
 }
 //Nuevo Booking
 const postBooking = (req:Request, res:Response) => {
     const {body} = req
     const newBooking = snewBooking(body)
-    res.send({
-        newBooking
-    })
+    res.status(201).json(newBooking)
 }
 //Edit/Update Booking
 const putBooking = (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
     const updateBooking = sputBooking(id,body)
-    res.send({
-        updateBooking
-    })
+    res.status(200).json(updateBooking)
 }
 //Remove Booking 
 const deleteBooking = (req:Request, res:Response) => {
     const {id} = req.params
     const deleteBooking = sdeleteBooking(id)
-    res.json({
-        msg: 'Delete Booking',
-        id,
-        deleteBooking
-    })
+    res.status(200).json(deleteBooking)
 }
 
 //Room

@@ -1,6 +1,5 @@
-import User from "../../interfaces/Employee";
-import dbusers from '../../db/employee.json'
-export default function getUsers(){
-    const users = dbusers
+import { Users } from "../../models/modelEmployee";
+export default async function getUsers(){
+    const users = await Users.find()
     return users
 }

@@ -1,6 +1,8 @@
 import Booking from "../../interfaces/Booking";
-import booking from '../../db/booking.json'
+import { Bookings } from "../../models/modelBooking";
 
-export default function newBooking(booking:Booking){
-    return booking
+export default async function newBooking(booking:Booking){
+    const newBooking = new Bookings({...booking})
+    const insertBooking = await newBooking.save()
+    return insertBooking
 }

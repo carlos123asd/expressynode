@@ -1,10 +1,10 @@
 export default interface Employee{
     id:string
-    photo:string[]
+    photo:string
     name:string
     email:string
-    startdate:string
+    startdate:Date
     description:string
     phone:string
-    status:string
+    status:'inactive'|'active'
 }

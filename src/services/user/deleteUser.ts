@@ -1,8 +1,5 @@
-import User from "../../interfaces/Employee";
-import dbusers from '../../db/employee.json'
-export default function deleteUser(id:string){
-    const user = dbusers.filter((user) => {
-        return user.id === id
-    })
+import { Users } from "../../models/modelEmployee";
+export default async function deleteUser(id:string){
+    const user = await Users.findByIdAndDelete(id)
     return user
 }

@@ -14,44 +14,40 @@ const routerMessage = Router()
 //Conseguir todos los datos de Message
 const getAllmessage = (req:Request, res:Response) => {
     const message = sgetMessages()
-    res.send({
-        message
-    })
+    if(message){
+        return res.status(200).json(message)
+    }else{
+        return res.status(404).json(message)
+    }
 }
 //Conseguir un Message
 const getMessage = (req:Request, res:Response) => {
     const {id} = req.params
     const message = sgetAMessage(id)
-    res.send({
-        message
-    })
+    if(message){
+        return res.status(200).json(message)
+    }else{
+        return res.status(404).json(message)
+    }
 }
 //Nuevo Message
 const postMessage = (req:Request, res:Response) => {
     const {body} = req
-    snewMessage(body)
-    res.send({
-        body
-    })
+    const newMessage = snewMessage(body)
+    res.status(201).json(newMessage)
 }
 //Edit/Update Message
 const putMessage = (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
     const updateMessage = sputMessage(id,body)
-    res.send({
-        updateMessage
-    })
+    res.status(200).json(updateMessage)
 }
 //Remove Message 
 const deleteMessage = (req:Request, res:Response) => {
     const {id} = req.params
     const deleteMessage = sdeleteMessage(id)
-    res.json({
-        msg: 'Delete Booking',
-        id,
-        deleteMessage
-    })
+    res.status(200).json(deleteMessage)
 }
 
 //Message

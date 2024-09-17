@@ -13,44 +13,40 @@ import sdeleteUser from "../services/user/deleteUser"
 //Conseguir todos los datos de Users
 const getAllusers = (req:Request, res:Response) => {
     const users = sgetUsers()
-    res.send({
-        users
-    })
+    if(users){
+        return res.status(200).json(users)
+    }else{
+        return res.status(404).json(users)
+    }
 }
-//Conseguir un Message
+//Conseguir un User
 const getUser = (req:Request, res:Response) => {
     const {id} = req.params
     const user = sgetAUser(id)
-    res.send({
-        user
-    })
+    if(user){
+        return res.status(200).json(user)
+    }else{
+        return res.status(404).json(user)
+    }
 }
-//Nuevo Message
+//Nuevo User
 const postUser = (req:Request, res:Response) => {
     const {body} = req
-    const newRoom = snewUser(body)
-    res.send({
-        newRoom
-    })
+    const newUser = snewUser(body)
+    return res.status(201).json(newUser)
 }
-//Edit/Update Message
+//Edit/Update User
 const putUser = (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
     const updateUser = sputUser(id,body)
-    res.send({
-        updateUser
-    })
+    return res.status(200).json(updateUser)
 }
-//Remove Message 
+//Remove User 
 const deleteUser = (req:Request, res:Response) => {
     const {id} = req.params
     const deleteRoom = sdeleteUser(id)
-    res.json({
-        msg: 'Delete Booking',
-        id,
-        deleteRoom
-    })
+    res.status(200).json({deleteRoom})
 }
 
 //Users

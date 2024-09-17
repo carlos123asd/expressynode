@@ -14,46 +14,41 @@ const routerRoom = Router()
 //Conseguir todos los datos de room
 const getAllrooms = (req:Request, res:Response) => {
     const rooms = sgetRooms()
-    res.send({
-        rooms
-    })
+    if(rooms){
+        return res.status(200).json(rooms)
+    }else{
+        return res.status(404).json(rooms)
+    }
 }
 //Conseguir un room
 const getRoom = (req:Request, res:Response) => {
     const {id} = req.params
     const room = sgetARoom(id)
-    res.send({
-        room
-    })
+    if(room){
+        return res.status(200).json(room)
+    }else{
+        return res.status(404).json(room)
+    }
 }
 //Nuevo Room
 const postRoom = (req:Request, res:Response) => {
     const {body} = req
     const newRoom = snewRoom(body)
-    res.send({
-        newRoom
-    })
+    return res.status(201).json(newRoom)
 }
 //Edit/Update Room
 const putRoom = (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
     const updateRoom = sputRoom(id,body)
-    res.send({
-        updateRoom
-    })
+    return res.status(200).json(updateRoom)
 }
 //Remove Room 
 const deleteRoom = (req:Request, res:Response) => {
     const {id} = req.params
     const deleteRoom = sdeleteRoom(id)
-    res.json({
-        msg: 'Delete Booking',
-        id,
-        deleteRoom
-    })
+    return res.status(200).json(deleteRoom)
 }
-
 //Room
 //Conseguir all datos de room
 routerRoom.get('/room',validateToken,getAllrooms)

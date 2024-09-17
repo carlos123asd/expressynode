@@ -1,6 +1,5 @@
-import Message from "../../interfaces/Message";
-import dbmessages from '../../db/comment.json'
-export default function getMessages(){
-    const messages = dbmessages as Message[]
+import { Messages } from "../../models/modelMessage";
+export default async function getMessages(){
+    const messages = await Messages.find()
     return messages
 }

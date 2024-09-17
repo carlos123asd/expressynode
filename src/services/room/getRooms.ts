@@ -1,6 +1,5 @@
-import Room from "../../interfaces/Room";
-import dbrooms from '../../db/room.json'
-export default function getRooms(){
-    const rooms = dbrooms
+import { Rooms } from "../../models/modelRoom";
+export default async function getRooms(){
+    const rooms = await Rooms.find()
     return rooms
 }

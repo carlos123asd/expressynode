@@ -1,6 +1,8 @@
 import User from "../../interfaces/Employee";
-import dbusers from '../../db/employee.json'
+import { Users } from "../../models/modelEmployee";
 
-export default function newUser(user:User){
-    return user
+export default async function newUser(user:User){
+    const newUser = new Users({...user})
+    const insertUser = await newUser.save()
+    return insertUser
 }

@@ -1,8 +1,5 @@
-import Message from "../../interfaces/Message";
-import dbmessages from '../../db/comment.json'
-export default function getMessage(id:string){
-    const message = dbmessages.filter((message) => {
-        return message.id === id
-    })
+import { Messages } from "../../models/modelMessage";
+export default async function getMessage(id:string){
+    const message = await Messages.findById(id)
     return message
 }

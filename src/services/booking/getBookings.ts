@@ -1,7 +1,6 @@
-import Booking from "../../interfaces/Booking";
-import booking from '../../db/booking.json'
+import { Bookings } from "../../models/modelBooking";
 
-export default function getBookings(){
-    const bookings = booking as Booking[]
+export default async function getBookings(){
+    const bookings = await Bookings.find()
     return bookings
 }

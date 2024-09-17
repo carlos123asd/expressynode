@@ -1,12 +1,6 @@
-import Message from "../../interfaces/Message";
-import messages from '../../db/comment.json'
+import { Messages } from "../../models/modelMessage";
 
-export default function putMessage(id:string,dateUpdate:Object){
-    const message = messages.filter((message) => {
-        return message.id === id
-    })
-    return {
-        message,
-        ...dateUpdate
-    }
+export default async function putMessage(id:string,dateUpdate:Object){
+    await Messages.findByIdAndUpdate({id}, dateUpdate)
+    return await Messages.findById(id)
 }

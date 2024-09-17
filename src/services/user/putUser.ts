@@ -1,12 +1,8 @@
 import User from "../../interfaces/Employee";
-import dbusers from '../../db/employee.json'
+import { Users } from "../../models/modelEmployee";
 
-export default function putUser(id:string,dateUpdate:User){
-    const user = dbusers.filter((user) => {
-        return user.id === id
-    })
-    return {
-        user,
-        ...dateUpdate
-    }
+export default async function putUser(id:string,dateUpdate:User){
+    await Users.updateOne({id}, dateUpdate)
+    const userUpdated = await Users.findById(id)
+    return userUpdated
 }

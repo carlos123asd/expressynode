@@ -8,7 +8,8 @@ import routerUser from './controllers/User'
 import routerAuth from './controllers/Auth'
 import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
-//import swaggerDocument from '../swagger-output.json'
+import swaggerDocument from '../swagger-output.json'
+import mongoose from 'mongoose'
 
 dotenv.config()
 
@@ -33,9 +34,18 @@ app.use(apiPaths.messages,routerMessage)
 app.use(apiPaths.users,routerUser)
 app.use('/auth',routerAuth)
 //Documentacion Rutas SwagGer
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+const startServer = async () => {
+    try {
+        await mongoose.connect(
+            "mongodb://root:root@localhost:27017/mongoose?authSource=admin"
+        )
+        app.listen(port, () => console.log('Server listen on port 8000'))
+    } catch (error) {
+        console.error(error)
+        process.exit(1)
+    }
+}
 
-app.listen(port, () => {
-    console.log('Server on port: 8000')
-})
+startServer()

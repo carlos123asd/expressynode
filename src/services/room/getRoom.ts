@@ -1,8 +1,5 @@
-import Room from "../../interfaces/Room";
-import dbrooms from '../../db/room.json'
-export default function getRoom(id:string){
-    const room = dbrooms.filter((room) => {
-        return room.id === id
-    })
+import { Rooms } from "../../models/modelRoom";
+export default async function getRoom(id:string){
+    const room = await Rooms.findById(id)
     return room
 }
