@@ -53,7 +53,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const startServer = async () => {
     try {
         await mongoose.connect(
-            "mongodb://express:123456@localhost:27017/hoteldb"   
+            "mongodb://express:123456@localhost:27017/hoteldb"   //Coneccion al cluster URI -> compass conection: mongodb+srv://expressynode:admin98@cluster0.6zp5s.mongodb.net/
         )
         app.listen(port, () => console.log('Server listen on port 8000'))
     } catch (error) {
