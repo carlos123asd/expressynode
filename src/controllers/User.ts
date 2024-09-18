@@ -11,8 +11,8 @@ import sdeleteUser from "../services/user/deleteUser"
 
 //Users
 //Conseguir todos los datos de Users
-const getAllusers = (req:Request, res:Response) => {
-    const users = sgetUsers()
+const getAllusers = async (req:Request, res:Response) => {
+    const users = await sgetUsers()
     if(users){
         return res.status(200).json(users)
     }else{
@@ -20,9 +20,9 @@ const getAllusers = (req:Request, res:Response) => {
     }
 }
 //Conseguir un User
-const getUser = (req:Request, res:Response) => {
+const getUser = async (req:Request, res:Response) => {
     const {id} = req.params
-    const user = sgetAUser(id)
+    const user = await sgetAUser(id)
     if(user){
         return res.status(200).json(user)
     }else{
@@ -30,35 +30,35 @@ const getUser = (req:Request, res:Response) => {
     }
 }
 //Nuevo User
-const postUser = (req:Request, res:Response) => {
+const postUser = async (req:Request, res:Response) => {
     const {body} = req
-    const newUser = snewUser(body)
+    const newUser = await snewUser(body)
     return res.status(201).json(newUser)
 }
 //Edit/Update User
-const putUser = (req:Request, res:Response) => {
+const putUser = async (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
-    const updateUser = sputUser(id,body)
+    const updateUser = await sputUser(id,body)
     return res.status(200).json(updateUser)
 }
 //Remove User 
-const deleteUser = (req:Request, res:Response) => {
+const deleteUser = async (req:Request, res:Response) => {
     const {id} = req.params
-    const deleteRoom = sdeleteUser(id)
+    const deleteRoom = await sdeleteUser(id)
     res.status(200).json({deleteRoom})
 }
 
 //Users
 //Conseguir all datos de Users
-routerUser.get('/users',validateToken,getAllusers)
+routerUser.get('/user',validateToken,getAllusers)
 //Conseguir un User
-routerUser.get('/users/:id',validateToken,getUser)
+routerUser.get('/user/:id',validateToken,getUser)
 //Nuevo User
-routerUser.post('/users/add',validateToken,postUser)
+routerUser.post('/user/add',validateToken,postUser)
 //Edit/Update User
-routerUser.put('/users/edit/:id',validateToken,putUser)
+routerUser.put('/user/edit/:id',validateToken,putUser)
 //Remove User 
-routerUser.delete('users/delete/:id',validateToken,deleteUser)
+routerUser.delete('user/delete/:id',validateToken,deleteUser)
 
 export default routerUser

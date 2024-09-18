@@ -10,16 +10,22 @@ import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
 import swaggerDocument from '../swagger-output.json'
 import mongoose from 'mongoose'
+import { Users } from './models/modelEmployee'
+import { employeeFaker } from './faker/users'
+import { Bookings } from './models/modelBooking'
+import { Messages } from './models/modelMessage'
+import { bookingFaker } from './faker/bookings'
+import { messageFaker } from './faker/message'
 
 dotenv.config()
 
 const app:Application = express()
 const port = process.env.PORT || "8000"
 const apiPaths = {
-    rooms: 'api/rooms',
-    bookings: 'api/bookings',
-    messages: 'api/messages',
-    users: 'api/users',
+    rooms: '/rooms',
+    bookings: '/bookings',
+    messages: '/messages',
+    users: '/users',
 }
 /*función de seguridad que permite a los navegadores web realizar solicitudes
 a un dominio diferente al que sirve la página web . Sin CORS, los navegadores
@@ -27,19 +33,27 @@ restringen dichas solicitudes debido a cuestiones de seguridad.*/
 app.use(cors())
 app.use(express.json())
 
+app.get('/',(req,res) => {
+    res.send({
+        msg: "Login"
+    })
+})
+//Rutas Auth
+app.use('/auth',routerAuth)
 
+//Rutas generales
 app.use(apiPaths.rooms,routerRoom)
 app.use(apiPaths.bookings,routerBooking)
 app.use(apiPaths.messages,routerMessage)
 app.use(apiPaths.users,routerUser)
-app.use('/auth',routerAuth)
+
 //Documentacion Rutas SwagGer
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const startServer = async () => {
     try {
         await mongoose.connect(
-            "mongodb://root:root@localhost:27017/mongoose?authSource=admin"
+            "mongodb://express:123456@localhost:27017/hoteldb"   
         )
         app.listen(port, () => console.log('Server listen on port 8000'))
     } catch (error) {
@@ -47,5 +61,24 @@ const startServer = async () => {
         process.exit(1)
     }
 }
+
+Users.insertMany(employeeFaker)
+  .then(docs => console.log(`${docs.length} users have been inserted into the database.`))
+  .catch(err => {
+    console.error(err);
+    console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+  });
+Bookings.insertMany(bookingFaker)
+.then(docs => console.log(`${docs.length} users have been inserted into the database.`))
+.catch(err => {
+console.error(err);
+console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+});
+Messages.insertMany(messageFaker)
+.then(docs => console.log(`${docs.length} users have been inserted into the database.`))
+.catch(err => {
+console.error(err);
+console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+});
 
 startServer()

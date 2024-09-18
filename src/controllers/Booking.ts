@@ -13,8 +13,9 @@ const routerBooking = Router()
 
 //Booking
 //Conseguir todos los datos de Booking
-const getAllbookings = (req:Request, res:Response) => {
-    const bookings = sgetBookings()
+const getAllbookings = async (req:Request, res:Response) => {
+    const bookings = await sgetBookings() //service
+    console.log('res',bookings)
     if(bookings){
         return res.status(200).json(bookings)
     }else{
@@ -22,9 +23,9 @@ const getAllbookings = (req:Request, res:Response) => {
     }
 }
 //Conseguir un Booking
-const getBooking = (req:Request, res:Response) => {
+const getBooking = async (req:Request, res:Response) => {
     const {id} = req.params
-    const booking = sgetAbooking(id)
+    const booking = await sgetAbooking(id)
     if(booking){
         return res.status(200).json(booking)
     }else{
@@ -32,35 +33,35 @@ const getBooking = (req:Request, res:Response) => {
     }
 }
 //Nuevo Booking
-const postBooking = (req:Request, res:Response) => {
+const postBooking = async (req:Request, res:Response) => {
     const {body} = req
-    const newBooking = snewBooking(body)
+    const newBooking = await snewBooking(body)
     res.status(201).json(newBooking)
 }
 //Edit/Update Booking
-const putBooking = (req:Request, res:Response) => {
+const putBooking = async (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
-    const updateBooking = sputBooking(id,body)
+    const updateBooking = await sputBooking(id,body)
     res.status(200).json(updateBooking)
 }
 //Remove Booking 
-const deleteBooking = (req:Request, res:Response) => {
+const deleteBooking = async (req:Request, res:Response) => {
     const {id} = req.params
-    const deleteBooking = sdeleteBooking(id)
+    const deleteBooking = await sdeleteBooking(id)
     res.status(200).json(deleteBooking)
 }
 
 //Room
 //Conseguir all datos de room
-routerBooking.get('/bookings',validateToken,getAllbookings)
+routerBooking.get('/booking',validateToken,getAllbookings)
 //Conseguir all datos de room
-routerBooking.get('/bookings/:id',validateToken,getBooking)
+routerBooking.get('/booking/:id',validateToken,getBooking)
 //Nuevo Room
-routerBooking.post('/bookings/add',validateToken,postBooking)
+routerBooking.post('/booking/add',validateToken,postBooking)
 //Edit/Update Room
-routerBooking.put('/bookings/edit/:id',validateToken,putBooking)
+routerBooking.put('/booking/edit/:id',validateToken,putBooking)
 //Remove Room 
-routerBooking.delete('/bookings/delete/:id',validateToken,deleteBooking)
+routerBooking.delete('/booking/delete/:id',validateToken,deleteBooking)
 
 export default routerBooking

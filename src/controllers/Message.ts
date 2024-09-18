@@ -12,8 +12,8 @@ import sdeleteMessage from "../services/message/deleteMessage"
 const routerMessage = Router()
 //Message
 //Conseguir todos los datos de Message
-const getAllmessage = (req:Request, res:Response) => {
-    const message = sgetMessages()
+const getAllmessage = async (req:Request, res:Response) => {
+    const message = await sgetMessages()
     if(message){
         return res.status(200).json(message)
     }else{
@@ -21,9 +21,9 @@ const getAllmessage = (req:Request, res:Response) => {
     }
 }
 //Conseguir un Message
-const getMessage = (req:Request, res:Response) => {
+const getMessage = async (req:Request, res:Response) => {
     const {id} = req.params
-    const message = sgetAMessage(id)
+    const message = await sgetAMessage(id)
     if(message){
         return res.status(200).json(message)
     }else{
@@ -31,22 +31,22 @@ const getMessage = (req:Request, res:Response) => {
     }
 }
 //Nuevo Message
-const postMessage = (req:Request, res:Response) => {
+const postMessage = async (req:Request, res:Response) => {
     const {body} = req
-    const newMessage = snewMessage(body)
+    const newMessage = await snewMessage(body)
     res.status(201).json(newMessage)
 }
 //Edit/Update Message
-const putMessage = (req:Request, res:Response) => {
+const putMessage = async (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
-    const updateMessage = sputMessage(id,body)
+    const updateMessage = await sputMessage(id,body)
     res.status(200).json(updateMessage)
 }
 //Remove Message 
-const deleteMessage = (req:Request, res:Response) => {
+const deleteMessage = async (req:Request, res:Response) => {
     const {id} = req.params
-    const deleteMessage = sdeleteMessage(id)
+    const deleteMessage = await sdeleteMessage(id)
     res.status(200).json(deleteMessage)
 }
 

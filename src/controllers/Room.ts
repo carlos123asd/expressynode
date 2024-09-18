@@ -12,8 +12,8 @@ const routerRoom = Router()
 
 //Room
 //Conseguir todos los datos de room
-const getAllrooms = (req:Request, res:Response) => {
-    const rooms = sgetRooms()
+const getAllrooms = async (req:Request, res:Response) => {
+    const rooms = await sgetRooms()
     if(rooms){
         return res.status(200).json(rooms)
     }else{
@@ -21,9 +21,9 @@ const getAllrooms = (req:Request, res:Response) => {
     }
 }
 //Conseguir un room
-const getRoom = (req:Request, res:Response) => {
+const getRoom = async (req:Request, res:Response) => {
     const {id} = req.params
-    const room = sgetARoom(id)
+    const room = await sgetARoom(id)
     if(room){
         return res.status(200).json(room)
     }else{
@@ -31,22 +31,22 @@ const getRoom = (req:Request, res:Response) => {
     }
 }
 //Nuevo Room
-const postRoom = (req:Request, res:Response) => {
+const postRoom = async (req:Request, res:Response) => {
     const {body} = req
-    const newRoom = snewRoom(body)
+    const newRoom = await snewRoom(body)
     return res.status(201).json(newRoom)
 }
 //Edit/Update Room
-const putRoom = (req:Request, res:Response) => {
+const putRoom = async (req:Request, res:Response) => {
     const {body} = req
     const {id} = req.params
-    const updateRoom = sputRoom(id,body)
+    const updateRoom = await sputRoom(id,body)
     return res.status(200).json(updateRoom)
 }
 //Remove Room 
-const deleteRoom = (req:Request, res:Response) => {
+const deleteRoom = async (req:Request, res:Response) => {
     const {id} = req.params
-    const deleteRoom = sdeleteRoom(id)
+    const deleteRoom = await sdeleteRoom(id)
     return res.status(200).json(deleteRoom)
 }
 //Room
