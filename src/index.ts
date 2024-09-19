@@ -61,24 +61,24 @@ const startServer = async () => {
         process.exit(1)
     }
 }
-
+/*
 Users.insertMany(employeeFaker)
   .then(docs => console.log(`${docs.length} users have been inserted into the database.`))
   .catch(err => {
     console.error(err);
-    console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+    console.error(`${err.writeErrors?.length ?? 0} users errors occurred during the insertMany operation.`);
   });
 Bookings.insertMany(bookingFaker)
-.then(docs => console.log(`${docs.length} users have been inserted into the database.`))
+.then(docs => console.log(`${docs.length} bookings have been inserted into the database.`))
 .catch(err => {
 console.error(err);
-console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
+console.error(`${err.writeErrors?.length ?? 0} bookings errors occurred during the insertMany operation.`);
 });
 Messages.insertMany(messageFaker)
-.then(docs => console.log(`${docs.length} users have been inserted into the database.`))
+.then(docs => console.log(`${docs.length} messages have been inserted into the database.`))
 .catch(err => {
 console.error(err);
-console.error(`${err.writeErrors?.length ?? 0} errors occurred during the insertMany operation.`);
-});
+console.error(`${err.writeErrors?.length ?? 0} messages errors occurred during the insertMany operation.`);
+});*/
 
 startServer()

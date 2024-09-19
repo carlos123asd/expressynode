@@ -7,6 +7,7 @@ export function createRandomEmployee():Employee {
     photo: faker.image.avatar(),
     name: faker.person.fullName(),
     email: faker.internet.email(),
+    password: faker.internet.password(),
     startdate: faker.date.recent(),
     description: faker.word.words(),
     phone: faker.phone.number(),
