@@ -16,11 +16,12 @@ import { Bookings } from './models/modelBooking'
 import { Messages } from './models/modelMessage'
 import { bookingFaker } from './faker/bookings'
 import { messageFaker } from './faker/message'
+import bcrypt from 'bcrypt'
 
 dotenv.config()
 
 const app:Application = express()
-const port = process.env.PORT || "8000"
+const port = process.env.PORT || "3000"
 const apiPaths = {
     rooms: '/rooms',
     bookings: '/bookings',
@@ -49,20 +50,29 @@ app.use(apiPaths.users,routerUser)
 
 //Documentacion Rutas SwagGer
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+/*
+bcrypt.genSalt(10).then((response) => {
+     bcrypt.hash('jVRddMLh0sSYw5H', response).then((response) => {
+        console.log(response)
+     }) ;
+});*/
+      
 
 const startServer = async () => {
     try {
         await mongoose.connect(
-            "mongodb://express:123456@localhost:27017/hoteldb"   //Coneccion al cluster URI -> compass conection: mongodb+srv://expressynode:admin98@cluster0.6zp5s.mongodb.net/
+            process.env.URIMongo as string   //Coneccion al cluster URI -> compass conection: mongodb://express:123456@localhost:27017/hoteldb
         )
-        app.listen(port, () => console.log('Server listen on port 8000'))
+        app.listen(port, () => console.log('Server listen on port 3000'))
     } catch (error) {
         console.error(error)
         process.exit(1)
     }
 }
-/*
-Users.insertMany(employeeFaker)
+
+startServer()
+
+/*Users.insertMany(employeeFaker)
   .then(docs => console.log(`${docs.length} users have been inserted into the database.`))
   .catch(err => {
     console.error(err);
@@ -80,5 +90,3 @@ Messages.insertMany(messageFaker)
 console.error(err);
 console.error(`${err.writeErrors?.length ?? 0} messages errors occurred during the insertMany operation.`);
 });*/
-
-startServer()

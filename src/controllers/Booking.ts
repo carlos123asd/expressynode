@@ -7,6 +7,7 @@ import sgetAbooking from "../services/booking/getBooking"
 import snewBooking from "../services/booking/newBooking"
 import sputBooking from "../services/booking/putBooking"
 import sdeleteBooking from "../services/booking/deleteBooking"
+import { Bookings } from "../models/modelBooking"
 
 
 const routerBooking = Router()
@@ -15,7 +16,6 @@ const routerBooking = Router()
 //Conseguir todos los datos de Booking
 const getAllbookings = async (req:Request, res:Response) => {
     const bookings = await sgetBookings() //service
-    console.log('res',bookings)
     if(bookings){
         return res.status(200).json(bookings)
     }else{
@@ -41,6 +41,7 @@ const postBooking = async (req:Request, res:Response) => {
 //Edit/Update Booking
 const putBooking = async (req:Request, res:Response) => {
     const {body} = req
+    console.log(body)
     const {id} = req.params
     const updateBooking = await sputBooking(id,body)
     res.status(200).json(updateBooking)
@@ -51,7 +52,6 @@ const deleteBooking = async (req:Request, res:Response) => {
     const deleteBooking = await sdeleteBooking(id)
     res.status(200).json(deleteBooking)
 }
-
 //Room
 //Conseguir all datos de room
 routerBooking.get('/booking',validateToken,getAllbookings)

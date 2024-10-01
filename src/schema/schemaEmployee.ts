@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt'
 
 
 export const employeeSchema = new Schema<Employee>({
-    id: {type: String, required: true},
     photo: {type: String, required: false},
     name: {type: String, required: true},
     email: {type: String,unique: true, required: true},

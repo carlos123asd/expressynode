@@ -2,7 +2,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70bd"
   },
-  "id": "1",
   "roomNumber": 6961,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -27,7 +26,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70be"
   },
-  "id": "2",
   "roomNumber": 1794,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -50,7 +48,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70bf"
   },
-  "id": "3",
   "roomNumber": 7150,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -78,7 +75,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c0"
   },
-  "id": "4",
   "roomNumber": 6982,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -100,7 +96,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c1"
   },
-  "id": "5",
   "roomNumber": 5579,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -127,7 +122,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c2"
   },
-  "id": "6",
   "roomNumber": "1111",
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -147,7 +141,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c3"
   },
-  "id": "7",
   "roomNumber": 4062,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -170,7 +163,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c4"
   },
-  "id": "8",
   "roomNumber": 9032,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -198,7 +190,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c5"
   },
-  "id": "9",
   "roomNumber": 2704,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",
@@ -225,7 +216,6 @@
   "_id": {
     "$oid": "66ea86e6b1d838c5aa3f70c6"
   },
-  "id": "10",
   "roomNumber": 3938,
   "photo": [
     "https://images.unsplash.com/photo-1572177215152-32f247303126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2Mjk0NzV8MHwxfHNlYXJjaHwxNnx8cm9vbSUyMGhvdGVsfGVufDB8fHx8MTcyMjU0NDk5MHww&ixlib=rb-4.0.3&q=80&w=1080",

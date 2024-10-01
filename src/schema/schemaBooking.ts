@@ -3,7 +3,6 @@ import Booking from '../interfaces/Booking'
 
 
 export const bookingSchema = new Schema<Booking>({
-    id: {type: String, required: true},
     guest: {type: String, required: true},
     orderDate: {type: Date, default: Date.now, required: true},
     checkin: {type: Date, required: true},

@@ -1,5 +1,5 @@
 export default interface Room{
-    id:string
+    _id:string
     roomNumber:number
     photo:string[]
     typeRoom:string
@@ -9,5 +9,5 @@ export default interface Room{
     discount:number
     cancellation:string
     status:string
-    amenities:string
+    amenities:string[]
 }

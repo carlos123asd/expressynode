@@ -3,7 +3,6 @@ import Room from '../interfaces/Room'
 
 
 export const roomSchema = new Schema<Room>({
-    id: {type: String, required: true},
     roomNumber: {type: Number, required: true},
     photo: {type: [String], required: true},
     typeRoom: {type: String, required: true},
@@ -13,5 +12,5 @@ export const roomSchema = new Schema<Room>({
     discount: {type: Number, required: true},
     cancellation: {type: String, required: true},
     status: {type: String, required: true},
-    amenities: {type: String, required: true}
+    amenities: {type: [String], required: true}
 })

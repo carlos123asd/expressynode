@@ -1,5 +1,5 @@
 export default interface Employee{
-    id:string
+    _id:string
     photo:string
     name:string
     email:string
